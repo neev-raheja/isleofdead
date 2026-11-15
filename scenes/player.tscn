@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cyso0xtxg1gwc"]
 
-[ext_resource type="Script" uid="uid://kk60lhltb7jn" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Script" uid="uid://kk60lhltb7jn" path="res://scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bm4oojssocebx" path="res://characters/thug/Idle.png" id="2_idle"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_feet"]

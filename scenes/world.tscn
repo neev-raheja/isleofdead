@@ -1,13 +1,12 @@
 [gd_scene format=3]
 
-[ext_resource type="PackedScene" uid="uid://cyso0xtxg1gwc" path="res://player.tscn" id="1_wply"]
-[ext_resource type="Script" path="res://hud.gd" id="3_whud"]
+[ext_resource type="PackedScene" uid="uid://cyso0xtxg1gwc" path="res://scenes/player.tscn" id="1_wply"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="3_whud"]
 [ext_resource type="TileSet" path="res://world_build/tiles.tres" id="4_wtil"]
-[ext_resource type="Script" path="res://island.gd" id="5_wisl"]
-[ext_resource type="Script" path="res://scenery.gd" id="6_wscn"]
-[ext_resource type="Script" path="res://waves.gd" id="7_wwav"]
-[ext_resource type="Script" path="res://revive.gd" id="8_wrev"]
-[ext_resource type="Script" path="res://debug_input.gd" id="9_wdbg"]
+[ext_resource type="Script" path="res://scripts/island.gd" id="5_wisl"]
+[ext_resource type="Script" path="res://scripts/scenery.gd" id="6_wscn"]
+[ext_resource type="Script" path="res://scripts/waves.gd" id="7_wwav"]
+[ext_resource type="Script" path="res://scripts/revive.gd" id="8_wrev"]
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -32,9 +31,6 @@ color = Color(0.8, 0.86, 1, 1)
 [node name="Waves" type="Node" parent="."]
 script = ExtResource("7_wwav")
 
-[node name="DebugInput" type="Node" parent="."]
-script = ExtResource("9_wdbg")
-
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("3_whud")
 
@@ -44,7 +40,7 @@ offset_top = 12.0
 offset_right = 1100.0
 offset_bottom = 48.0
 theme_override_font_sizes/font_size = 24
-text = "Health: 100   Ammo: 10"
+text = "Health: 100   Ammo: 10   Wave: 1   Zombies: 0"
 
 [node name="GameOver" type="Label" parent="HUD"]
 visible = false

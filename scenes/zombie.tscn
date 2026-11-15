@@ -1,6 +1,6 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://zombie.gd" id="1_zscr"]
+[ext_resource type="Script" path="res://scripts/zombie.gd" id="1_zscr"]
 [ext_resource type="Texture2D" path="res://characters/thug/Walk.png" id="2_ztex"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_feet"]

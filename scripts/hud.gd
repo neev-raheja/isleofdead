@@ -16,7 +16,7 @@ func _process(_delta):
 
 	if revive.failed:
 		game_over.text = "GAME OVER\nYou reached wave %d\nPress R to try again" % waves.wave
-	if waves.won:
+	elif waves.won:
 		game_over.text = "SUNRISE! YOU SURVIVED\nPress R to play again"
 	game_over.visible = revive.failed or waves.won
 

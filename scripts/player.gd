@@ -3,7 +3,6 @@ extends CharacterBody2D
 var speed = 300
 var ammo = 10
 var health = 100
-var max_health = 100
 var dead = false
 var fire_delay = 0.2
 var fire_wait = 0.0
@@ -19,7 +18,7 @@ var anim = "idle"
 var anim_time = 0.0
 var row = 0
 
-var bullet_scene = preload("res://bullet.tscn")
+var bullet_scene = preload("res://scenes/bullet.tscn")
 var island = null
 
 @onready var sprite = $Sprite2D

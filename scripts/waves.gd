@@ -1,6 +1,6 @@
 extends Node
 
-var zombie_scene = preload("res://zombie.tscn")
+var zombie_scene = preload("res://scenes/zombie.tscn")
 
 var wave = 0
 var last_wave = 10
@@ -42,12 +42,12 @@ func start_wave():
 		if wave >= 3 and i % 4 == 3:
 			kind = "runner"
 			kind_health = 2
-		if wave % 3 == 0 and i * 3 < wave:
+		elif wave % 3 == 0 and i * 3 < wave:
 			kind = "brute"
 			kind_health = 12
 		hits += kind_health
 		spawn_zombie(kind)
-	player.ammo += int(hits * 1.275)
+	player.ammo += int(hits * 1.5)
 
 func spawn_zombie(kind):
 	var spot = player.global_position
