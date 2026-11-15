@@ -1,0 +1,36 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://zombie.gd" id="1_zscr"]
+[ext_resource type="Texture2D" path="res://characters/thug/Walk.png" id="2_ztex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_feet"]
+radius = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hurt"]
+size = Vector2(44, 88)
+
+[node name="zombie" type="CharacterBody2D" groups=["zombies"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_zscr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.8, 1.4, 0.75, 1)
+position = Vector2(0, -60)
+scale = Vector2(4, 4)
+texture = ExtResource("2_ztex")
+hframes = 8
+vframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -14)
+shape = SubResource("CircleShape2D_feet")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -46)
+shape = SubResource("RectangleShape2D_hurt")

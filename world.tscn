@@ -1,0 +1,105 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://cyso0xtxg1gwc" path="res://player.tscn" id="1_wply"]
+[ext_resource type="Script" path="res://hud.gd" id="3_whud"]
+[ext_resource type="TileSet" path="res://world_build/tiles.tres" id="4_wtil"]
+[ext_resource type="Script" path="res://island.gd" id="5_wisl"]
+[ext_resource type="Script" path="res://scenery.gd" id="6_wscn"]
+[ext_resource type="Script" path="res://waves.gd" id="7_wwav"]
+[ext_resource type="Script" path="res://revive.gd" id="8_wrev"]
+[ext_resource type="Script" path="res://debug_input.gd" id="9_wdbg"]
+
+[node name="World" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Island" type="TileMapLayer" parent="."]
+modulate = Color(1.15, 1.3, 1.05, 1)
+z_index = -1
+scale = Vector2(3, 3)
+tile_set = ExtResource("4_wtil")
+script = ExtResource("5_wisl")
+
+[node name="Scenery" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("6_wscn")
+
+[node name="player" parent="." instance=ExtResource("1_wply")]
+position = Vector2(3072, 2112)
+
+[node name="Night" type="CanvasModulate" parent="."]
+color = Color(0.8, 0.86, 1, 1)
+
+[node name="Waves" type="Node" parent="."]
+script = ExtResource("7_wwav")
+
+[node name="DebugInput" type="Node" parent="."]
+script = ExtResource("9_wdbg")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("3_whud")
+
+[node name="Info" type="Label" parent="HUD"]
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 1100.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 24
+text = "Health: 100   Ammo: 10"
+
+[node name="GameOver" type="Label" parent="HUD"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Revive" type="CanvasLayer" parent="."]
+script = ExtResource("8_wrev")
+
+[node name="Box" type="Control" parent="Revive"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="ColorRect" parent="Revive/Box"]
+layout_mode = 0
+offset_left = -300.0
+offset_top = -20.0
+offset_right = 300.0
+offset_bottom = 20.0
+color = Color(0.12, 0.12, 0.12, 1)
+
+[node name="Green" type="ColorRect" parent="Revive/Box"]
+layout_mode = 0
+offset_left = -45.0
+offset_top = -20.0
+offset_right = 45.0
+offset_bottom = 20.0
+color = Color(0.2, 0.85, 0.3, 1)
+
+[node name="Slider" type="ColorRect" parent="Revive/Box"]
+layout_mode = 0
+offset_left = -300.0
+offset_top = -32.0
+offset_right = -290.0
+offset_bottom = 32.0
+
+[node name="Label" type="Label" parent="Revive/Box"]
+layout_mode = 0
+offset_left = -300.0
+offset_top = -90.0
+offset_right = 300.0
+offset_bottom = -50.0
+theme_override_font_sizes/font_size = 28
+text = "Tap when the slider is on green   0 / 3"
+horizontal_alignment = 1

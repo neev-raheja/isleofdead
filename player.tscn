@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cyso0xtxg1gwc"]
+
+[ext_resource type="Script" uid="uid://kk60lhltb7jn" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://bm4oojssocebx" path="res://characters/thug/Idle.png" id="2_idle"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_feet"]
+radius = 16.0
+
+[node name="player" type="CharacterBody2D" unique_id=682632021 groups=["player"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=361204853]
+position = Vector2(-1, -60)
+scale = Vector2(4, 4)
+texture = ExtResource("2_idle")
+hframes = 8
+vframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1885671897]
+position = Vector2(0, -14)
+shape = SubResource("CircleShape2D_feet")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1340911270]
